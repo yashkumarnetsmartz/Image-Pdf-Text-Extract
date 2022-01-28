@@ -1,0 +1,26 @@
+<div class="card m-3">
+    <h5 class="card-header">Upload Image/PDF</h5>
+    <div class="card-body">
+            <div class="form-group">
+                <input type="file" [(ngModel)]="file" class="form-control" (change)="onSelectFile($event)" [ngClass]="{ 'is-invalid': submitted && !file }" />
+                <div *ngIf="submitted && !file" class="invalid-feedback">
+                    <div >File is required</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-1 form-group">
+                    <button class="btn btn-primary" (click)="onSubmit()">Submit</button>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary" (click)="onReset()">Reset</button>
+                </div>
+            </div>
+    </div>
+    <div class="text-center" *ngIf="submitted  && resultText!==''" [innerHtml]="resultText">
+    </div>
+    <div class="text-center" *ngIf="submitted && resultText==''" >
+        Loading.....
+    </div>
+
+  </div>
+  
